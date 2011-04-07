@@ -36,6 +36,7 @@ Test:
 
 Configure:
 	@echo "#ifndef SETTINGS_H" > settings.h
+	@echo "#define SETTINGS_H" > settings.h
 	@echo "#define NEODICE_PREFIX \"$(PREFIX)/\"" >> settings.h
 	@echo "#endif" >> settings.h
 
