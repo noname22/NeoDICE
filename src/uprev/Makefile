@@ -17,7 +17,7 @@ CFLAGS= -Wall -Wstrict-prototypes -O2 -I../.. -L../../ulib -DREGISTERED -DCOMMER
 all: $(EXE)
 
 $(EXE) : $(OBJS)
-	gcc $(CFLAGS) $(OBJS) -o $(EXE) -lamiga
+	$(CC) $(CFLAGS) $(OBJS) -o $(EXE) -lamiga
 	strip $(EXE)
 
 install:

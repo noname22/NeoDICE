@@ -17,9 +17,17 @@ Help:	Banner
 	@echo ""
 	@echo "Optionally an alternate install prefix (target) can be specified with:"
 	@echo "  make PREFIX=\"/home/myhome/mysdk\""
-	@echo "  make install PREFIX=\"/home/myhome/mysdk\""
+	@echo "  sudo make install PREFIX=\"/home/myhome/mysdk\""
 	@echo ""
 	@echo "The default prefix is: $(PREFIX)"
+	@echo ""
+	@echo "!!! Note, does not work with x86_64 target yet (it segfaults) !!!"
+	@echo ""
+	@echo "If you're on a x86_64 system, please prepend CC=\"gcc -m32\" to make"
+	@echo "and be sure to have a 32 bit dev libc installed (libc6-dev-i386)."
+	@echo ""
+	@echo "  CC=\"gcc -m32\" make"
+	@echo "  sudo make install"
 	@echo ""
 	
 
@@ -35,7 +43,6 @@ Suplib:	Configure
 	@echo "== Building support lib =="
 	-mkdir -p ulib
 	(cd suplib; make)
-	(cd suplib; pwd)
 	(cd suplib; make install)
 
 Main:	Suplib
@@ -52,6 +59,8 @@ install:
 	cp -r include $(PREFIX)
 
 	@echo "PATH=\$$PATH:$(PREFIX)/ubin" > $(PREFIX)/env.sh
+	@echo "DCCOPTS=\"-2.0 -//\"" >> $(PREFIX)/env.sh
+	@echo "DINCLUDE=\"$(PREFIX)/include/\"" >> $(PREFIX)/env.sh
 
 	@echo ""
 	@echo "done installing"

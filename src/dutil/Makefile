@@ -16,34 +16,34 @@ LDFLAGS= -L../../ulib -lamiga
 all: $(EXES)
 
 bintohex: bintohex.c
-	gcc $(CFLAGS) $< -o $@ $(LDFLAGS)
+	$(CC) $(CFLAGS) $< -o $@ $(LDFLAGS)
 
 fdtolib: fdtolib.c
-	gcc $(CFLAGS) $< -o $@ $(LDFLAGS)
+	$(CC) $(CFLAGS) $< -o $@ $(LDFLAGS)
 
 fdtopragma: fdtopragma.c
-	gcc $(CFLAGS) $< -o $@ $(LDFLAGS)
+	$(CC) $(CFLAGS) $< -o $@ $(LDFLAGS)
 
 istrip: istrip.c
-	gcc $(CFLAGS) $< -o $@ $(LDFLAGS)
+	$(CC) $(CFLAGS) $< -o $@ $(LDFLAGS)
 
 lbmake: lbmake.c
-	gcc $(CFLAGS) $< -o $@ $(LDFLAGS)
+	$(CC) $(CFLAGS) $< -o $@ $(LDFLAGS)
 
 libtos: libtos.c
-	gcc $(CFLAGS) $< -o $@ $(LDFLAGS)
+	$(CC) $(CFLAGS) $< -o $@ $(LDFLAGS)
 
 makeproto: makeproto.c
-	gcc $(CFLAGS) $< -o $@ $(LDFLAGS)
+	$(CC) $(CFLAGS) $< -o $@ $(LDFLAGS)
 
 romable: romable.c
-	gcc $(CFLAGS) $< -o $@ $(LDFLAGS)
+	$(CC) $(CFLAGS) $< -o $@ $(LDFLAGS)
 
 hunks: hunks.c
-	gcc $(CFLAGS) $< -o $@ $(LDFLAGS)
+	$(CC) $(CFLAGS) $< -o $@ $(LDFLAGS)
 
 Join: Join.c
-	gcc $(CFLAGS) $< -o $@ $(LDFLAGS)
+	$(CC) $(CFLAGS) $< -o $@ $(LDFLAGS)
 
 install:
 	install -m 0755 $(EXES) $(ED)

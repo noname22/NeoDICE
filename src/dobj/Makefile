@@ -18,7 +18,7 @@ PROTOS= protos.h
 all: $(PROTOS) $(EXE)
 
 $(EXE) : $(OBJS)
-	gcc $(CFLAGS) $(OBJS) -o $(EXE) -lamiga
+	$(CC) $(CFLAGS) $(OBJS) -o $(EXE) -lamiga
 	strip $(EXE)
 
 $(PROTOS) : $(SRCS)

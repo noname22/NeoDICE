@@ -4,6 +4,9 @@ NeoDICE is an attempt to clean up the source for the 68k/Amiga C compiler DICE. 
 
 Modification of the original source code will be kept minimal.
 
+==== Compilation ====
+
+See make help for more information
 
 ==== Original DICE information ====
 The original DICE compiler is (c)Copyright 1992-1997 Obvious Implementations Corp.
