@@ -1,0 +1,56 @@
+87c87
+< 	for (rp = RexxAuxPortList.lh_Head; rp->rp_Node.ln_Succ; rp = (RexxPortNode *)rp->rp_Node.ln_Succ) {
+---
+> 	for (rp = (RexxPortNode *)RexxAuxPortList.lh_Head; rp->rp_Node.ln_Succ; rp = (RexxPortNode *)rp->rp_Node.ln_Succ) {
+98c98
+< 	for (rp = RexxAuxPortList.lh_Head; rp->rp_Node.ln_Succ; rp = (RexxPortNode *)rp->rp_Node.ln_Succ)
+---
+> 	for (rp = (RexxPortNode *)RexxAuxPortList.lh_Head; rp->rp_Node.ln_Succ; rp = (RexxPortNode *)rp->rp_Node.ln_Succ)
+188d187
+< 	    if (pres) rip.rip_RexxMsg->rm_Action |= RXFF_RESULT;
+209c208
+< 		    for (rp = RexxAuxPortList.lh_Head; rp->rp_Node.ln_Succ; rp = (RexxPortNode *)(rp->rp_Node.ln_Succ))
+---
+> 		    for (rp = (RexxPortNode *)RexxAuxPortList.lh_Head; rp->rp_Node.ln_Succ; rp = (RexxPortNode *)(rp->rp_Node.ln_Succ))
+224,228c223,224
+< 		    if (rip.rip_RexxMsg->rm_Result2) {
+< 			if (pres)
+< 			    *pres = strdup((char *)rip.rip_RexxMsg->rm_Result2);
+< 			DeleteArgstring((UBYTE *)rip.rip_RexxMsg->rm_Result2);
+< 		    }
+---
+> 		    if (pres && rip.rip_RexxMsg->rm_Result2)
+> 			*pres = strdup((char *)rip.rip_RexxMsg->rm_Result2);
+250c246
+< 	for (rp = RexxAuxPortList.lh_Head; rp->rp_Node.ln_Succ; rp = (RexxPortNode *)(rp->rp_Node.ln_Succ))
+---
+> 	for (rp = (RexxPortNode *)RexxAuxPortList.lh_Head; rp->rp_Node.ln_Succ; rp = (RexxPortNode *)(rp->rp_Node.ln_Succ))
+255c251
+<     while (msg = GetMsg(port)) {
+---
+>     while (msg = (struct RexxMsg *)GetMsg(port)) {
+270c266
+< 	    for (rip = RexxWIPList.lh_Head; rip->rip_Node.ln_Succ; rip = (RexxIPNode *)rip->rip_Node.ln_Succ) {
+---
+> 	    for (rip = (RexxIPNode *)RexxWIPList.lh_Head; rip->rip_Node.ln_Succ; rip = (RexxIPNode *)rip->rip_Node.ln_Succ) {
+357,363c353
+< 	    char buf[4];
+< 	    strcpy(buf, ".00");
+< 	    buf[1] += pno / 10;
+< 	    buf[2] += pno % 10;
+< 	    strcpy(port->mp_Node.ln_Name, name);
+< 	    strcat(port->mp_Node.ln_Name, buf);
+< /*	    sprintf(port->mp_Node.ln_Name, "%s.%02d", name, pno); */
+---
+> 	    sprintf(port->mp_Node.ln_Name, "%s.%02d", name, pno);
+400c390
+< 	for (rp = RexxAuxPortList.lh_Head; rp->rp_Node.ln_Succ; rp = (RexxPortNode *)rp->rp_Node.ln_Succ) {
+---
+> 	for (rp = (RexxPortNode *)RexxAuxPortList.lh_Head; rp->rp_Node.ln_Succ; rp = (RexxPortNode *)rp->rp_Node.ln_Succ) {
+460c450
+< 		for (rip = RexxWIPList.lh_Head; rip->rip_Node.ln_Succ; rip = (RexxIPNode *)rip->rip_Node.ln_Succ) {
+---
+> 		for (rip = (RexxIPNode *)RexxWIPList.lh_Head; rip->rip_Node.ln_Succ; rip = (RexxIPNode *)rip->rip_Node.ln_Succ) {
+516a507,508
+> 
+> 

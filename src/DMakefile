@@ -1,0 +1,93 @@
+ALL: DCC DCPP DC1 DAS DLink DMake \
+DBug VOpts VMake Dicecache WBRun \
+Patch DObj DUtil DiceHelp \
+FMSDisk FSovl UpRev TTXSame \
+RCS Lib snakepit
+
+DCC:
+	cd oi:src/DCC
+	dmake -f DCC.DICE
+
+DCPP:
+	cd oi:src/DCPP
+	dmake -f DCPP.DICE
+
+DC1:
+	cd oi:src/DC1
+	dmake -f DC1.DICE
+
+DAS:
+	cd oi:src/DAS
+	dmake -f DAS.DICE
+
+DLink:
+	cd oi:src/DLink
+	dmake -f DLink.DICE
+
+DMake:
+	cd oi:src/DMake
+	dmake -f DMake.DICE
+
+DBug:
+	cd oi:src/DBug
+	dmake -f DBug.DICE
+
+VOpts:
+	cd oi:src/VOpts
+	dmake -f VOpts.DICE
+
+VMake:
+	cd oi:src/VMake
+	dmake -f VMake.DICE
+
+Dicecache:
+	cd oi:src/Dicecache
+	dmake -f Dicecache.DICE
+
+WBRun:
+	cd oi:src/WBRun
+	dmake -f WBRun.DICE
+
+Patch:
+	cd oi:src/Patch
+	dmake -f Patch.DICE
+
+DObj:
+	cd oi:src/DObj
+	dmake -f DObj.DICE
+
+DUtil:
+	cd oi:src/DUtil
+	dmake -f DUtil.DICE
+
+DiceHelp:
+	cd oi:src/DiceHelp
+	dmake -f DiceHelp.DICE
+
+FMSDisk:
+	cd oi:src/FMSDisk
+	dmake -f FMSDisk.DICE
+
+FSovl:
+	cd oi:src/FSovl
+	dmake -f FSovl.DICE
+
+UpRev:
+	cd oi:src/UpRev
+	dmake -f UpRev.DICE
+
+TTXSame:
+	cd oi:src/TTXSame
+	dmake -f TTXSame.DICE
+
+RCS:
+	cd oi:src/RCS
+	dmake -f RCS.DICE
+
+Lib:
+	cd oi:src/Lib
+	dmake -f Lib.DICE
+
+snakepit:
+	cd oi:src/snakepit
+	dmake -f snakepit.DICE
