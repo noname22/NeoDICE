@@ -40,7 +40,8 @@
 #define DCC "dcc:"
 #define DCC_CONFIG "dcc_config:"
 #else
-#define DCC "/home/dice/"
+#include "settings.h"
+#define DCC NEODICE_PREFIX
 #define DCC_CONFIG DCC "config/"
 #endif
 

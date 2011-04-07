@@ -80,6 +80,7 @@
 
 #include "defs.h"
 #include "DLink_rev.h"
+#include "settings.h"
 
 static char *DCopyright =
 "Copyright (c) 1992,1993,1994 Obvious Implementations Corp., Redistribution & Use under DICE-LICENSE.TXT." VERSTAG;
@@ -196,7 +197,7 @@ main(int ac, char **av)
 #ifdef AMIGA
 	sprintf(DLib, "%.*sdlib:", p2 - ptr, ptr);
 #else
-	sprintf(DLib, "/home/dice/%.*sdlib/", p2 - ptr, ptr);
+	sprintf(DLib, "%s%.*sdlib/", NEODICE_PREFIX, p2 - ptr, ptr);
 #endif
     }
 

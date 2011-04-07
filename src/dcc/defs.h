@@ -31,7 +31,8 @@
 
 #else
 
-#define DLIBPRE "/home/dice/"
+#include "settings.h"
+#define DLIBPRE NEODICE_PREFIX
 #define DLIBPOS "dlib/"
 
 #include <suplib/lists.h>

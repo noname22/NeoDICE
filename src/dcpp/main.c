@@ -13,6 +13,7 @@
 
 #include "defs.h"
 #include "DCPP_rev.h"
+#include "settings.h"
 
 static char *DCopyright =
 "Copyright (c) 1992,1993,1994 Obvious Implementations Corp., Redistribution & Use under DICE-LICENSE.TXT." VERSTAG;
@@ -109,7 +110,7 @@ char *av[];
     if (getenv("DINCLUDE")) {
 	DefIncludePath = getenv("DINCLUDE");
     } else {
-	DefIncludePath = mergestr("/home/dice/", Prefix);
+	DefIncludePath = mergestr(NEODICE_PREFIX, Prefix);
 	DefIncludePath = mergestr(DefIncludePath, "include/");
     }
 #endif
@@ -223,7 +224,8 @@ ParseOpts(short ac, char **av, short cppOnly)
 		    ptr[1]
 		);
 #else
-		sprintf(ABuf, "/home/dice/%sinclude/amiga%c%c",
+		sprintf(ABuf, "%s%sinclude/amiga%c%c",
+                    NEODICE_PREFIX,
 		    Prefix,
 		    ptr[-1],
 		    ptr[1]
