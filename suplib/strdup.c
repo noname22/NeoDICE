@@ -1,4 +1,4 @@
-
+/*
 #include <stdlib.h>
 #include <string.h>
 
@@ -11,4 +11,4 @@ strdup(const char *str)
 	strcpy(ptr, str);
     return(ptr);
 }
-
+*/
