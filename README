@@ -1,0 +1,10 @@
+==== NeoDICE ====
+
+NeoDICE is an attempt to clean up the source for the 68k/Amiga C compiler DICE. The main objective is to get it up and running on a modern Linux/Unix machine and compile c-code that targets the older Amiga computers (500, 600, 1000, 1200).
+
+Modification of the original source code will be kept minimal.
+
+
+==== Original DICE information ====
+The original DICE compiler is (c)Copyright 1992-1997 Obvious Implementations Corp.
+Its webpage is located at http://www.obviously.com/dice/
