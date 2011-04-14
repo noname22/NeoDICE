@@ -63,6 +63,9 @@ install:
 	@echo "DCCOPTS=\"-2.0 -//\"" >> $(PREFIX)/env.sh
 	@echo "DINCLUDE=\"$(PREFIX)/include/\"" >> $(PREFIX)/env.sh
 
+	@chmod -R a+r $(PREFIX)
+	@chmod a+x $(PREFIX)
+
 	@echo ""
 	@echo "done installing"
 	@echo ""
