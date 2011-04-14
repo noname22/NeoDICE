@@ -18,11 +18,11 @@
 
 Prototype void InitDefines(char *);
 Prototype void ModifySymbolText(Sym *, short);
-Prototype void do_undef(ubyte *, int, long *);
-Prototype void do_define(ubyte *, int, long *);
+Prototype void do_undef(char *, int, long *);
+Prototype void do_define(char *, int, long *);
 Prototype long PreliminaryReplace(char *, long, char **, short *, short, char **);
-Prototype Include * PrepareSymbolArgs(Sym *, ubyte *, long *, long);
-Prototype long HandleSymbol(Sym *, ubyte *, long, long);
+Prototype Include * PrepareSymbolArgs(Sym *, char *, long *, long);
+Prototype long HandleSymbol(Sym *, char *, long, long);
 
 #define  X_LINE 	    (SF_SPECIAL|0x100)
 #define  X_DATE 	    (SF_SPECIAL|0x200)
@@ -97,7 +97,7 @@ ModifySymbolText(Sym *sym, short type)
 
 void
 do_undef(buf, max, pu)
-ubyte *buf;
+char *buf;
 int max;
 long *pu;   /*	unused	*/
 {
@@ -111,7 +111,7 @@ long *pu;   /*	unused	*/
 
 void
 do_define(buf, max, pu)
-ubyte *buf;
+char *buf;
 int max;
 long *pu;   /*	unused	*/
 {
@@ -133,7 +133,7 @@ long *pu;   /*	unused	*/
 
 	++b;
 	while (b < max && buf[b] != ')') {
-	    while (b < max && WhiteSpace[buf[b]])   /*	skip ws     */
+	    while (b < max && WhiteSpace[(ubyte)buf[b]])   /*	skip ws     */
 		++b;
 	    i = ExtSymbol(buf, b, max); 	    /*	symbol name */
 	    if (i == b) {
@@ -148,7 +148,7 @@ long *pu;   /*	unused	*/
 	    dbprintf(("Macro Argument: %.*s\n", i -b, buf + b));
 
 	    b = i;
-	    while (b < max && WhiteSpace[buf[b]])
+	    while (b < max && WhiteSpace[(ubyte)buf[b]])
 		++b;
 	    if (b >= max || (buf[b] != ')' && buf[b] != ',')) {
 		cerror(EERROR_EXPECTED_COMMA);
@@ -163,7 +163,7 @@ long *pu;   /*	unused	*/
 	}
 	++b;
     }
-    while (b < max && WhiteSpace[buf[b]])	/*  skip white space to macro body  */
+    while (b < max && WhiteSpace[(ubyte)buf[b]])	/*  skip white space to macro body  */
 	++b;
 
     /*
@@ -222,9 +222,9 @@ PreliminaryReplace(
 
     bytes = max;
     for (i = 0; i < max; ) {
-	ubyte c = src[i];
+	char c = src[i];
 
-	if ((c < '0' || c > '9') && SymbolChar[c]) {
+	if ((c < '0' || c > '9') && SymbolChar[(ubyte)c]) {
 	    long l = ExtSymbol(src, i, max);
 	    short len = l - i;
 
@@ -260,9 +260,9 @@ PreliminaryReplace(
 	ErrorNoMemory();
 
     for (i = di = 0; i < max && di < bytes;) {
-	ubyte c = src[i];
+	char c = src[i];
 
-	if ((c < '0' || c > '9') && SymbolChar[c]) {
+	if ((c < '0' || c > '9') && SymbolChar[(ubyte)c]) {
 	    long l = ExtSymbol(src, i, max);
 	    short len = l - i;
 
@@ -313,7 +313,7 @@ PreliminaryReplace(
 
 Include *PrepareSymbolArgs(sym, base, ip, max)
 Sym *sym;
-ubyte *base;
+char *base;
 long *ip;
 long max;  /* Set it negative to avoid doing any dumps */
 {
@@ -343,7 +343,7 @@ long max;  /* Set it negative to avoid doing any dumps */
 	short j;
 				/*  look for '('    */
 	for (;;) {
-	    while (i < max && WhiteSpace[base[i]])
+	    while (i < max && WhiteSpace[(ubyte)base[i]])
 		++i;
 	    if (i >= max || base[i] != '\n')
 		break;
@@ -400,7 +400,7 @@ long max;  /* Set it negative to avoid doing any dumps */
 	    short parens = 0;	/*  paren level 	*/
 	    long b;		/*  base of argument	*/
 
-	    while (i < max && WhiteSpace[base[i]])
+	    while (i < max && WhiteSpace[(ubyte)base[i]])
 		++i;
 	    b = i;
 
@@ -533,7 +533,7 @@ long max;  /* Set it negative to avoid doing any dumps */
 long
 HandleSymbol(sym, base, i, max)
 Sym *sym;
-ubyte *base;
+char *base;
 long i;
 long max;
 {

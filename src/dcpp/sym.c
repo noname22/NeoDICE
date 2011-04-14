@@ -11,12 +11,12 @@
 
 #include "defs.h"
 
-Prototype int hash(ubyte *, short);
-Prototype Sym *FindSymbol(ubyte *, short);
-Prototype int UndefSymbol(ubyte *, short);
+Prototype int hash(char *, short);
+Prototype Sym *FindSymbol(char *, short);
+Prototype int UndefSymbol(char *, short);
 Prototype void DefineOptSymbol(char *);
-Prototype Sym *DefineSimpleSymbol(ubyte *, ubyte *, short);
-Prototype Sym *DefineSymbol(ubyte *, short, short, short, char **, short *, ubyte *, short, short, long);
+Prototype Sym *DefineSimpleSymbol(char *, char *, short);
+Prototype Sym *DefineSymbol(char *, short, short, short, char **, short *, char *, short, short, long);
 
 Prototype void DumpPrecompSymbols(FILE *);
 Prototype void DefinePrecompSymbol(Sym *);
@@ -31,7 +31,7 @@ long	SymGroup;
 #ifdef NO_ASM
 
 int
-hash(ubyte *ptr, short len)
+hash(char *ptr, short len)
 {
     long hv = 0x1234FCD1;
 
@@ -46,7 +46,7 @@ hash(ubyte *ptr, short len)
 #endif
 
 Sym *
-FindSymbol(ubyte *name, short len)
+FindSymbol(char *name, short len)
 {
     Sym *sym;
     short hv = hash(name, len);
@@ -64,7 +64,7 @@ FindSymbol(ubyte *name, short len)
 }
 
 int
-UndefSymbol(ubyte *name, short len)
+UndefSymbol(char *name, short len)
 {
     Sym **psym;
     Sym *sym;
@@ -105,20 +105,20 @@ char *str;
 }
 
 Sym *
-DefineSimpleSymbol(ubyte *symName, ubyte *symText, short symType)
+DefineSimpleSymbol(char *symName, char *symText, short symType)
 {
     return(DefineSymbol(symName, strlen(symName), symType, -1, NULL, NULL, symText, 0, 0, strlen(symText)));
 }
 
 Sym *
 DefineSymbol(
-    ubyte *name,
+    char *name,
     short len,
     short type,
     short numArgs,
     char **args,
     short *lens,
-    ubyte *text,
+    char *text,
     short allocName,
     short allocText,
     long textSize
@@ -181,7 +181,7 @@ Sym *sym;
     if (sym->Args) {
 	int i;
 
-	sym->Args = (ubyte **)((long)sym->Args + (char *)sym);
+	sym->Args = (char **)((long)sym->Args + (char *)sym);
 	sym->ArgsLen = (short *)((long)sym->ArgsLen + (char *)sym);
 	for (i = 0; i < sym->NumArgs; ++i) {
 	    sym->Args[i] = (long)sym->Args[i] + (char *)sym;
@@ -233,7 +233,7 @@ FILE *fo;
 		if (sym->Args) {
 		    int i;
 
-		    xsym.Args = (ubyte **)bytes;
+		    xsym.Args = (char **)bytes;
 		    bytes += sym->NumArgs * sizeof(char *);
 
 		    xsym.ArgsLen = (short *)bytes;

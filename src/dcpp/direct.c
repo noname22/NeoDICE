@@ -18,7 +18,7 @@ Prototype short IfEnabled;
 Prototype short IfIndex;
 
 Prototype void InitDirective(void);
-Prototype long HandleDirective(ubyte *, int, int);
+Prototype long HandleDirective(char *, int, int);
 Prototype void do_if(ubyte *, int, long *);
 Prototype void do_ifndef(ubyte *, int, long *);
 Prototype void do_ifdef(ubyte *, int, long *);

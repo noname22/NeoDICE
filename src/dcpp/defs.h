@@ -101,13 +101,13 @@ typedef struct PreCompHdr {
 typedef struct Sym {
     struct Sym *Next;	/*  next in hash		*/
     struct Sym *Creator;/*  SF_MACROARG 		*/
-    ubyte   *SymName;
+    char   *SymName;
     short   SymLen;
     short   Type;	/*  type of symbol		*/
     short   NumArgs;	/*  if a macro, else -1 	*/
-    ubyte   **Args;	/*  names of args for replace	*/
+    char   **Args;	/*  names of args for replace	*/
     short   *ArgsLen;	/*  lengths of args for replace */
-    ubyte   *Text;	/*  contents of symbol		*/
+    char   *Text;	/*  contents of symbol		*/
     long    TextLen;
     long    SymGroup;	/*  for precompiled headers	*/
     short   Hv; 	/*  hash value			*/

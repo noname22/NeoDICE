@@ -119,7 +119,7 @@ ParseIfExp(char *buf, short *pundef, long max, short subsym)
 		 *	  of atom.
 		 */
 		if (SymbolChar[c]) {	/*  SymbolChar[] includes '0'-'9'   */
-		    short ni;
+		    long ni;
 
 		    --i;
 		    ni = ExtSymbol(buf, i, max);
@@ -172,7 +172,7 @@ ParseIfExp(char *buf, short *pundef, long max, short subsym)
 				    sym->Creator->Type &= ~SF_RECURSE;
 				}
 
-				v = ParseIfExp(sym->Text, &xundef, sym->TextLen, 1);
+				v = ParseIfExp((char*)sym->Text, &xundef, sym->TextLen, 1);
 
 				if (sym->Type & SF_MACROARG)
 				    sym->Creator->Type = creType;
@@ -395,6 +395,7 @@ CombineOp()
     Oper *op;
     Atom *a1, *a2;
     Atom ar;
+    memset(&ar, 0, sizeof(Atom));
 
     if (OperIdx <= BaseOperIdx)
 	return(-1);

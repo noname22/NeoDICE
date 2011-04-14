@@ -91,7 +91,9 @@ ExtArgsFile(short ac, char ***pav, char *file)
 	    str = malloc(len + 1);
 
 	    lseek(fd, 0L, 0);
-	    read(fd, str, len);
+	    if( read(fd, str, len) != len ){
+                fprintf(stderr, "internal error: couldn't read extargs from file: %s", file);
+            }
 	    str[len] = 0;
 	}
 	close(fd);

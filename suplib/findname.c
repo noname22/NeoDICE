@@ -1,4 +1,4 @@
-
+#include <string.h>
 #include <stdio.h>
 #include <suplib/lists.h>
 

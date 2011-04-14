@@ -18,9 +18,9 @@ Prototype char SymbolChar[256];
 
 Prototype void InitCpp(void);
 Prototype long cpp(long, int, char *, FILE *, char *, long);
-Prototype long SkipCommentLine(ubyte *, long, long);
-Prototype long SkipComment(ubyte *, long, long);
-Prototype long ExtSymbol(ubyte *, long, long);
+Prototype long SkipCommentLine(char *, long, long);
+Prototype long SkipComment(char *, long, long);
+Prototype long ExtSymbol(char *, long, long);
 Prototype long SkipString(char *, long, long);
 Prototype long SkipSingleSpec(char *, long, long);
 Prototype void Dump(char *, long, long);
@@ -69,7 +69,7 @@ long xbytes;
     long i;
     long w;
     short ifIndex = IfIndex;
-    ubyte *base;
+    char *base;
     Include inc;
 
     if (level >= MAX_INCLUDE_LEVEL)
@@ -166,7 +166,7 @@ long xbytes;
 		    ++i;
 		    if (nl == 0)
 		    	Dump(base, w, i);
-		    while (i < len && WhiteSpace[base[i]])
+		    while (i < len && WhiteSpace[(ubyte)base[i]])
 			++i;
 		    w = i;
 		} else {
@@ -226,11 +226,11 @@ long xbytes;
 		    w = i = HandleDirective(base, i + 1, len);
 		} else if (base[i+1] == '#') {
 		    long si = i + 2;
-		    while (i >= w && WhiteSpace[base[--i]]);
+		    while (i >= w && WhiteSpace[(ubyte)base[--i]]);
 		    ++i;
 		    Dump(base, w, i);
 		    i = si;
-		    while (i < len && WhiteSpace[base[i]])
+		    while (i < len && WhiteSpace[(ubyte)base[i]])
 			++i;
 		    w = i;
 		} else if (fi == NULL) {
@@ -355,7 +355,7 @@ long xbytes;
 
 long
 SkipCommentLine(base, i, max)
-ubyte *base;
+char *base;
 long i;
 long max;
 {
@@ -368,7 +368,7 @@ long max;
 
 long
 SkipComment(base, i, max)
-ubyte *base;
+char *base;
 long i;
 long max;
 {
@@ -399,7 +399,7 @@ long max;
 
 long
 ExtSymbol(base, i, max)
-ubyte *base;
+char *base;
 long i;
 long max;
 {
@@ -408,7 +408,7 @@ long max;
 #endif
     char *sc = SymbolChar;
 
-    while (i < max && sc[base[i]])
+    while (i < max && sc[(ubyte)base[i]])
 	++i;
 
     dbprintf(("ExtSymbol: %.*s\n", (int)(i - b), base + b));

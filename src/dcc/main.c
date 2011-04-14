@@ -1219,7 +1219,7 @@ char *tail;
      */
 
     if (tail && (ptr = strrchr(file, '.'))) {
-	n += sprintf(name + n, "%.*s", ptr - file, file);
+	n += sprintf(name + n, "%.*s", (int)(ptr - file), file);
     } else {
 	n += sprintf(name + n, "%s", file);
     }
@@ -1484,7 +1484,7 @@ char *buf;
 	printf("%s\n", buf);
 
     if ((r = vfork()) == 0) {
-	execlp("/bin/sh", "/bin/sh", "-c", buf, 0);
+	execlp("/bin/sh", "/bin/sh", "-c", buf, (void*)0);
 	uexit(30);
     } else {
 #ifdef linux
