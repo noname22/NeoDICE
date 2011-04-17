@@ -50,3 +50,4 @@ clean:
 	(cd dutil; make clean)
 	(cd uprev; make clean)
 
+.PHONY: DCC DCPP DC1 DAS DLINK DMAKE DOBJ DUTIL UPREV clean install

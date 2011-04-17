@@ -11,7 +11,7 @@ OBJS= main.o subs.o reloc.o symbol.o data.o code.o
 EXED= ../../ubin/dobj
 EXE= dobj
 
-CFLAGS= -Wall -Wstrict-prototypes -O2 -I../.. -L../../ulib -DREGISTERED -DCOMMERCIAL -DNO_ASM -DINTELBYTEORDER
+CFLAGS= -Wall -Wstrict-prototypes -O2 -I../.. -L../../ulib -DREGISTERED -DCOMMERCIAL -DNO_ASM -DINTELBYTEORDER -Dunix
 
 PROTOS= protos.h
 

@@ -12,7 +12,7 @@ OBJS= main.o place.o subs.o
 EXED= ../../ubin/dcc
 EXE= dcc
 
-CFLAGS= -Wall -Wstrict-prototypes -O2 -I../.. -L../../ulib -DREGISTERED -DCOMMERCIAL -DNO_ASM -DINTELBYTEORDER
+CFLAGS= -Wall -Wstrict-prototypes -O2 -I../.. -L../../ulib -DREGISTERED -DCOMMERCIAL -DNO_ASM -DINTELBYTEORDER -Dunix
 
 PROTOS= DCC-protos.h
 

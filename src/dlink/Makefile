@@ -12,7 +12,7 @@ OBJS= final.o jump.o main.o module.o reloc.o subs.o sym.o
 EXED= ../../ubin/dlink
 EXE= dlink
 
-CFLAGS= -Wall -Wstrict-prototypes -O2 -I../.. -L../../ulib -DREGISTERED -DCOMMERCIAL -DNO_ASM -DINTELBYTEORDER
+CFLAGS= -Wall -Wstrict-prototypes -O2 -I../.. -L../../ulib -DREGISTERED -DCOMMERCIAL -DNO_ASM -DINTELBYTEORDER -Dunix
 #CFLAGS= -Wall -Wstrict-prototypes -O2 -I../.. -L../../ulib -DNO_ASM -DINTELBYTEORDER
 
 PROTOS= protos.h

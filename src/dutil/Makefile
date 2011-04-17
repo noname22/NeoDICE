@@ -10,7 +10,7 @@ EXES= bintohex fdtolib fdtopragma istrip lbmake libtos \
 
 ED= ../../ubin/
 
-CFLAGS= -Wall -Wstrict-prototypes -O2 -I../.. -DREGISTERED -DCOMMERCIAL -DNO_ASM -DINTELBYTEORDER
+CFLAGS= -Wall -Wstrict-prototypes -O2 -I../.. -DREGISTERED -DCOMMERCIAL -DNO_ASM -DINTELBYTEORDER -Dunix
 LDFLAGS= -L../../ulib -lamiga
 
 all: $(EXES)

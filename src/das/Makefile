@@ -12,7 +12,7 @@ OBJS= direct.o exp.o lab.o main.o ops.o passa.o passb.o passc.o passg.o sect.o s
 EXED= ../../ubin/das
 EXE= das
 
-CFLAGS= -Wall -Wstrict-prototypes -O2 -I../.. -L../../ulib -DREGISTERED -DCOMMERCIAL -DNO_ASM -DINTELBYTEORDER -DDEBUG
+CFLAGS= -Wall -Wstrict-prototypes -O2 -I../.. -L../../ulib -DREGISTERED -DCOMMERCIAL -DNO_ASM -DINTELBYTEORDER -DDEBUG -Dunix
 
 PROTOS= protos.h
 

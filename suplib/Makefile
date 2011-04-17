@@ -1,5 +1,5 @@
 
-CFLAGS= -O2 -Wall -I.. -DINTELBYTEORDER
+CFLAGS= -O2 -Wall -I.. -DINTELBYTEORDER -Dunix
 OBJS= addhead.o addtail.o newlist.o remhead.o \
 	gethead.o strdup.o getsucc.o gettail.o \
 	getpred.o remove.o strnicmp.o getcwd.o \

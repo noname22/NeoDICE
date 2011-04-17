@@ -11,7 +11,7 @@ OBJS= buffer.o cmdlist.o convert.o depend.o main.o parse.o run.o subs.o var.o
 EXED= ../../ubin/dmake
 EXE= dmake
 
-CFLAGS= -Wall -Wstrict-prototypes -O2 -I../.. -L../../ulib -DREGISTERED -DCOMMERCIAL -DNO_ASM -DINTELBYTEORDER
+CFLAGS= -Wall -Wstrict-prototypes -O2 -I../.. -L../../ulib -DREGISTERED -DCOMMERCIAL -DNO_ASM -DINTELBYTEORDER -Dunix
 
 PROTOS= dmake-protos.h
 

@@ -1,5 +1,5 @@
 
-CFLAGS= -O2 -Wall -I..
+CFLAGS= -O2 -Wall -I.. -Dunix
 OD= objs/
 SRCS= addhead.c addtail.c newlist.c remhead.c \
 	gethead.c strdup.c getsucc.c gettail.c \

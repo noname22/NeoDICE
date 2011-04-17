@@ -12,7 +12,7 @@ OBJS= cexp.o cpp.o define.o direct.o include.o main.o precomp.o subs.o sym.o
 EXED= ../../ubin/dcpp
 EXE= dcpp
 
-CFLAGS= -Wall -Wstrict-prototypes -O2 -I../.. -L../../ulib -DREGISTERED -DCOMMERCIAL -DNO_ASM -DINTELBYTEORDER -DDEBUG
+CFLAGS= -Wall -Wstrict-prototypes -O2 -I../.. -L../../ulib -DREGISTERED -DCOMMERCIAL -DNO_ASM -DINTELBYTEORDER -DDEBUG -Dunix
 
 PROTOS= protos.h
 

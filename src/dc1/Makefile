@@ -17,7 +17,7 @@ OBJS= asm1.o asm2.o asmaddr.o asmflt.o asubs.o block.o cexp.o exp.o gen.o \
 EXED= ../../ubin/dc1
 EXE= dc1
 
-CFLAGS= -Wall -Wstrict-prototypes -O2 -I../.. -L../../ulib -DREGISTERED -DCOMMERCIAL -DNO_ASM -DINTELBYTEORDER -DDEBUG
+CFLAGS= -Wall -Wstrict-prototypes -O2 -I../.. -L../../ulib -DREGISTERED -DCOMMERCIAL -DNO_ASM -DINTELBYTEORDER -DDEBUG -Dunix
 #CFLAGS= -Wall -Wstrict-prototypes -g -I../.. -L../../ulib -DREGISTERED -DCOMMERCIAL -DNO_ASM -DINTELBYTEORDER -DDEBUG
 #CFLAGS= -Wall -Wstrict-prototypes -O2 -I../.. -L../../ulib -DNO_ASM -DINTELBYTEORDER -DDEBUG
 
