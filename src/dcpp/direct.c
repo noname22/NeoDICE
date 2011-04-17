@@ -73,7 +73,7 @@ InitDirective()
 
 long
 HandleDirective(base, i, max)
-ubyte *base;
+char *base;
 int i;
 int max;
 {
